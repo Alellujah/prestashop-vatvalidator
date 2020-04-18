@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<partners>
+<partner>
+	<name><![CDATA[skrill2]]></name>
+	<module>skrill</module>
+	<checkconfiguration>
+		<key>MB_SECRET_WORD</key>
+	</checkconfiguration>
+	<logo><![CDATA[https://api.prestashop.com/partner/premium/images/skrill.png]]></logo>
+	<labels>
+		<label iso="en"><![CDATA[Skrill Checkout - sell globally and grow]]></label>
+		<label iso="fr"><![CDATA[Skrill Checkout - vendez dans le monde entier et prospérez]]></label>
+		<label iso="es"><![CDATA[Skrill Checkout – venda globalmente y crezca]]></label>	
+		<label iso="it"><![CDATA[Skrill Checkout - vendi in tutto il mondo e cresci]]></label>
+		<label iso="de"><![CDATA[Skrill Checkout - weltweit verkaufen und expandieren]]></label>
+		<label iso="pl"><![CDATA[Płać i odbieraj płatności na całym świecie]]></label>
+		<label iso="nl"><![CDATA[Skrill Checkout - internationaal verkopen en groeien]]></label>
+	</labels>
+	<optionals>
+	</optionals>
+	<descriptions>
+	</descriptions>
+</partner>
+<partner>
+	<name><![CDATA[sendinblue]]></name>
+	<module>sendinblue</module>
+	<checkconfiguration>
+		<key>%</key>
+	</checkconfiguration>
+	<logo><![CDATA[https://api.prestashop.com/partner/premium/images/sendinblue.png]]></logo>
+	<labels>
+		<label iso="en"><![CDATA[Easily manage your email, newsletter and SMS campaigns with one single interface]]></label>
+		<label iso="fr"><![CDATA[Gérez facilement vos campagnes mails, newsletter, SMS sur une seule plateforme]]></label>
+		<label iso="es"><![CDATA[Maneja fácilmente tus campañas de emails, newsletters, SMS en una sola plataforma]]></label>
+		<label iso="it"><![CDATA[Gestisci facilmente le tue campagne mail, newsletters, SMS su una sola piattaforma]]></label>
+		<label iso="de"><![CDATA[Verwalten Sie E-Mail-, Newsletter- & SMS-Kampagnen mit 1 einzigen Schnittstelle]]></label>
+		<label iso="nl"><![CDATA[Beheer uw e-mails, nieuwsbrieven en SMS-campagnes met één enkele interface]]></label>
+	</labels>
+	<optionals>
+	</optionals>
+	<descriptions>
+	</descriptions>
+</partner>
+</partners>

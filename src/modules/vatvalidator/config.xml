@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+	<name>vatvalidator</name>
+	<displayName><![CDATA[Vat Validtor]]></displayName>
+	<version><![CDATA[0.0.1]]></version>
+	<description><![CDATA[Insert country code (ex. uk,it,cz,pt) and vat number to check if it\'s valid or not.]]></description>
+	<author><![CDATA[Fábio Albuquerque]]></author>
+	<tab><![CDATA[front_office_features]]></tab>
+	<is_configurable>1</is_configurable>
+	<need_instance>1</need_instance>
+</module>
