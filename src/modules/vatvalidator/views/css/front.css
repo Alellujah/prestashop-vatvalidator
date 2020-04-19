@@ -40,7 +40,27 @@
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.2);
     margin-top: 16px;
 }
-
+#vatvalidator_block_home #status {
+    display: none;
+    margin-top: 24px;
+    font-size: 0.8rem;
+    border: 1px solid;
+    padding: 16px;
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+}
+#vatvalidator_block_home #status > p{
+    padding:0;
+}
+#vatvalidator_block_home #status.invalid {
+    color: orangered;
+    border-color: orangered;
+}
+#vatvalidator_block_home #status.valid {
+    color: green;
+    border-color: green;
+}
 #vatvalidator_block_home form {
     display: flex;
     flex-direction: column;
@@ -54,7 +74,6 @@
 #vatvalidator_block_home .row button {
     width: 100%;
     padding: 16px 24px;
-    border: 1px solid cadetblue;
     background: cadetblue;
     color: white;
     cursor: pointer;

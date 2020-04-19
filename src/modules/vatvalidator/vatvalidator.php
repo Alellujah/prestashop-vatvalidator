@@ -222,12 +222,8 @@ class Vatvalidator extends Module
 
     public function hookDisplayHome()
     {
-        /* Place your code here. */
-        $validation = "VALID";
         $this->context->smarty->assign([
-            'module_name' => Configuration::get('VATVALIDATOR'),
-            'status' => $validation,
-            'form_link' => $this->context->link->getModuleLink('vatvalidator', 'display')
+            'form_link' => $this->context->link->getModuleLink('vatvalidator', 'VatValidator')
         ]);
         return $this->display(__FILE__, 'vatvalidator.tpl');
     }

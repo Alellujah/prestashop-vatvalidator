@@ -25,3 +25,85 @@
  * Don't forget to prefix your containers with your own identifier
  * to avoid any conflicts with others containers.
  */
+
+// var postdata = {
+//     ajax: 1,
+//     controller: 'VatValidator',
+//     action: 'verifyVat',
+//     token: token
+// };
+// console.log('i runned!!')
+// $.ajax({
+//     type: 'POST',
+//     url: '{$link->$this->context->getModuleLink(\'modulename\', \'default\')}',
+//     data: postdata,
+//     success: function(r){
+//         console.log(r)
+//     }
+// });
+
+$('document').ready(function(){
+    var form = document.getElementById("vatvalidatorform");
+    var countryValue = $('input[name="countrycode"]');
+    var vatnumberValue = $('input[name="vatnumber"]');
+    var btn = $('button');
+    var status = $('#status');
+    form.addEventListener("submit", (evt) => verifyVat(evt));
+
+    function verifyVat(evt) {
+        evt.preventDefault();
+        $('#status > p').remove();
+        status.removeClass("invalid valid");
+        if (!countryValue.val() || countryValue.val().length > 2){
+            status.css("display","block");
+            status.addClass("invalid");
+            status.append("<p>Error, country code can't be empty and can't have more than 2 characters!</p>")
+        }
+        if (!vatnumberValue.val() || isNaN(parseInt(vatnumberValue.val()))){
+            status.css("display","block");
+            status.addClass("invalid");
+            status.append("<p>Error, vat number can't be empty and has to be numbers!</p>")
+        }
+        else {
+            var postData = {
+                method: "verifyVat",
+                countrycode: countryValue.val(),
+                vatnumber: vatnumberValue.val(),
+                token: token,
+            }
+            $.ajax({
+                type: 'get',
+                headers: { "cache-control": "no-cache" },
+                dataType: 'json',
+                async: true,
+                cache: false,
+                url: baseUri+'?fc=module&module=vatvalidator&controller=VatValidator',
+                data: postData,
+                beforeSend: function() {
+                    btn.prop('disabled', true);
+                    status.css("display","none");
+                    btn.css('background-color','lightgrey');
+                    btn.html("Loading...");
+                },
+                success: function(json) {
+                    var statusMsg = json.valid === false ? "invalid" : "valid";
+                    status.addClass(statusMsg);
+                    status.css("display","block");
+                    status.append("<p> The VAT number: " + json.countryCode + json.vatNumber + " is " + statusMsg + "</p>");
+                    console.log(json);
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    status.css("display","block");
+                    status.append("<p> Error: "  + errorThrown + "</p>");
+                },
+                complete: function(xhr,status){
+                    console.log(status)
+                    btn.prop('disabled', false);
+                    btn.css('background-color','cadetblue');
+                    btn.html("Verify another");
+                }
+            });
+        }
+    }
+});
+
