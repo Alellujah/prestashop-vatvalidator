@@ -86,11 +86,15 @@ $('document').ready(function(){
                     btn.html("Loading...");
                 },
                 success: function(json) {
-                    var statusMsg = json.valid === false ? "invalid" : "valid";
-                    status.addClass(statusMsg);
-                    status.css("display","block");
-                    status.append("<p> The VAT number: " + json.countryCode + json.vatNumber + " is " + statusMsg + "</p>");
-                    console.log(json);
+                    if (json.error) {
+                        status.css("display","block");
+                        status.append("<p> Error: " + json.error.faultstring + "</p>");
+                    } else {
+                        var statusMsg = json.valid === false ? "invalid" : "valid";
+                        status.addClass(statusMsg);
+                        status.css("display","block");
+                        status.append("<p> The VAT number: " + json.countryCode + json.vatNumber + " is " + statusMsg + "</p>");
+                    }
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown) {
                     status.css("display","block");

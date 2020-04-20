@@ -30,6 +30,7 @@ $sql[] = 'CREATE TABLE IF NOT EXISTS `' . _DB_PREFIX_ . 'vatvalidator` (
     `id_vatvalidator` int(11) NOT NULL AUTO_INCREMENT,
     `countrycode` varchar(2) NOT NULL, 
     `vatnumber` int(11) NOT NULL,
+    `status` varchar(7) nOT NULL,
     PRIMARY KEY  (`id_vatvalidator`)
 ) ENGINE=' . _MYSQL_ENGINE_ . ' DEFAULT CHARSET=utf8;';
 

@@ -36,9 +36,16 @@ class vatvalidatorVatValidatorModuleFrontController extends ModuleFrontControlle
         // public 'valid' => boolean false
         // public 'name' => string '---' (length=3)
         // public 'address' => string '---' (length=3)
+        try {
+            $url = "https://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl";
+            $client = new SoapClient($url);
+            $result = $client->checkVat($params);
+            $valid = $result->valid ? "valid" : "invalid";
+            Db::getInstance()->execute("INSERT INTO `ps_vatvalidator` (`countrycode`, `vatnumber`, `status`) VALUES ( " . $params['countryCode'] . ", \"12345\", \"teste\")");
+            return $result;
+        } catch (SoapFault $e) {
+            return array("error" => $e);
+        }
 
-        $url = "https://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl";
-        $client = new SoapClient($url);
-        return $client->checkVat($params);
     }
 }
