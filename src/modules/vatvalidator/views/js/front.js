@@ -26,22 +26,6 @@
  * to avoid any conflicts with others containers.
  */
 
-// var postdata = {
-//     ajax: 1,
-//     controller: 'VatValidator',
-//     action: 'verifyVat',
-//     token: token
-// };
-// console.log('i runned!!')
-// $.ajax({
-//     type: 'POST',
-//     url: '{$link->$this->context->getModuleLink(\'modulename\', \'default\')}',
-//     data: postdata,
-//     success: function(r){
-//         console.log(r)
-//     }
-// });
-
 $('document').ready(function(){
     var form = document.getElementById("vatvalidatorform");
     var countryValue = $('input[name="countrycode"]');
@@ -101,7 +85,6 @@ $('document').ready(function(){
                     status.append("<p> Error: "  + errorThrown + "</p>");
                 },
                 complete: function(xhr,status){
-                    console.log(status)
                     btn.prop('disabled', false);
                     btn.css('background-color','cadetblue');
                     btn.html("Verify another");
